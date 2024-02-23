@@ -1,6 +1,8 @@
 package org.dnyanyog.repo;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.dnyanyog.entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -25,4 +27,8 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 
 	@Query(value = "SELECT u.user_id FROM Users u ", nativeQuery = true)
 	List<Long> findByIdOfAllUsers();
+
+	List<Users> findByUsername(String username);
+
+	Optional<Users> findByUserId(Long userID);
 }
