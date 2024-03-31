@@ -11,15 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-	@Autowired
-	LoginServiceImpl loginService;
-	
-	@PostMapping(
-			path="/api/v1/public/auth/validate",
-			consumes = {"application/json","application/xml"}, 
-			produces= {"application/json","application/xml"})
-	public LoginResponse validate(@RequestBody LoginRequest loginRequest) throws Exception
-	{
-		return loginService.validateUser(loginRequest);
-	}
+  @Autowired LoginServiceImpl loginService;
+
+  @PostMapping(
+      path = "/api/v1/public/auth/validate",
+      consumes = {"application/json", "application/xml"},
+      produces = {"application/json", "application/xml"})
+  public LoginResponse validate(@RequestBody LoginRequest loginRequest) throws Exception {
+    return loginService.validateUser(loginRequest);
+  }
 }
